@@ -6,6 +6,7 @@ use layouts::CenterMain;
 use layouts::Fibonacci;
 use layouts::MainAndVertStack;
 use layouts::Monocle;
+use layouts::CenterMainFluid;
 
 pub mod geometry;
 mod layouts;
@@ -18,6 +19,7 @@ pub enum LayoutEnum {
     Monocle,
     MainAndVertStack,
     CenterMain,
+    CenterMainFluid,
     Fibonacci,
 }
 
@@ -30,6 +32,7 @@ impl FromStr for LayoutEnum {
             "Monocle" => Ok(LayoutEnum::Monocle),
             "MainAndVertStack" => Ok(LayoutEnum::MainAndVertStack),
             "CenterMain" => Ok(LayoutEnum::CenterMain),
+            "CenterMainFluid" => Ok(LayoutEnum::CenterMainFluid),
             "Fibonacci" => Ok(LayoutEnum::Fibonacci),
             _ => Err(LayoutParseError),
         }
@@ -148,6 +151,7 @@ impl LayoutEnum {
             LayoutEnum::Monocle => Box::new(Monocle),
             LayoutEnum::MainAndVertStack => Box::new(MainAndVertStack),
             LayoutEnum::CenterMain => Box::new(CenterMain),
+            LayoutEnum::CenterMainFluid => Box::new(CenterMainFluid),
             LayoutEnum::Fibonacci => Box::new(Fibonacci),
         }
     }
